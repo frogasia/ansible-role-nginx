@@ -6,7 +6,7 @@
     owner: root
     group: root
     mode: 0644
-  when: "{{ nginx_enablerepo }} == nginx"
+  when: "{{ nginx_enablerepo }} == 'nginx'"
 
 - name: Ensure nginx is installed.
   yum:
