@@ -1,6 +1,6 @@
 # Ansible Role: Nginx
 
-[![Build Status](https://travis-ci.org/frogasia/ansible-role-nginx.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-nginx)
+[![Build Status](https://travis-ci.org/frogasia/ansible-role-nginx.svg?branch=master)](https://travis-ci.org/frogasia/ansible-role-nginx)
 
 Installs Nginx on RedHat/CentOS or Debian/Ubuntu Linux, or FreeBSD servers.
 
@@ -13,6 +13,14 @@ None.
 ## Role Variables
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
+
+    # Used only for RedHat systems (and derivatives). These were made dynamic to support 
+    # RedHat's Software Collection which stores binaries/logs and services references differently
+    # Defaults remain as those hardcoded to ensure the nginx repo can still be used.
+    nginx_enablerepo: "nginx"
+    nginx_package_name: "nginx"
+    nginx_binary_path: "/usr/bin/nginx"
+    nginx_service_name: "nginx"
 
     nginx_vhosts: []
 
