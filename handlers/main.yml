@@ -1,10 +1,12 @@
 ---
 - name: restart nginx
-  service: name=nginx state=restarted
+  service: name={{ nginx_service_name }} state=restarted
 
 - name: validate nginx configuration
   command: nginx -t -c /etc/nginx/nginx.conf
   changed_when: False
+  args:
+      executable: "{{ nginx_binary_path }}"
 
 - name: reload nginx
-  service: name=nginx state=reloaded
+  service: name={{ nginx_service_name }} state=reloaded
