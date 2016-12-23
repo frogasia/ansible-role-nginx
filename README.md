@@ -93,6 +93,10 @@ This value determines the largest file upload possible, as uploads are passed th
 
 If you have many server names, or have very long server names, you might get an Nginx error on startup requiring this value to be increased.
 
+    nginx_underscores_in_headers: ""
+
+When the use of underscores is disabled, request header fields whose names contain underscores are marked as invalid and become subject to the ignore_invalid_headers directive. Turn this on if you want it to do otherwise. This only applies in the http context though.
+
     nginx_proxy_cache_path: ""
 
 Set as the `proxy_cache_path` directive in the `nginx.conf` file. By default, this will not be configured (if left as an empty string), but if you wish to use Nginx as a reverse proxy, you can set this to a valid value (e.g. `"/var/cache/nginx keys_zone=cache:32m"`) to use Nginx's cache (further proxy configuration can be done in individual server configurations).

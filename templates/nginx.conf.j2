@@ -18,6 +18,10 @@ http {
     include       {{ nginx_mime_file_path }};
     default_type  application/octet-stream;
 
+    {% if nginx_underscores_in_headers %}
+        underscores_in_headers {{ nginx_underscores_in_headers }};
+    {% endif %}
+
     server_names_hash_bucket_size {{ nginx_server_names_hash_bucket_size }};
 
     client_max_body_size {{ nginx_client_max_body_size }};
